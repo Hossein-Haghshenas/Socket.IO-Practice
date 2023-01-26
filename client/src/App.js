@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { connect } from "socket.io-client";
 
-const socket = connect("http://localhost:5000");
+const socket = connect("https://slime-giant-jar.glitch.me/");
 
 const App = () => {
   // Room State
@@ -25,7 +25,7 @@ const App = () => {
     socket.on("receive_message", (data) => {
       setMessage([...message, data.userMessage]);
     });
-  }, [socket]);
+  }, [message]);
 
   return (
     <div className="container">
